@@ -1,0 +1,15 @@
+
+version: '2'
+
+services:
+
+  httpd:
+    build: .
+    ports:
+      - "30080:80"
+    entrypoint:
+      - httpd-foreground
+      - -sn 
+      - myServerName
+      - -vh 
+      - "jenkins.pic.*:http:jenkins-app:8080"
